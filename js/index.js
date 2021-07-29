@@ -43,6 +43,32 @@ const libros = [{
 //Tu codigo JS va acá
 
 
+function filtrarAutor(arr,autor){
+    const resultadoLibros = arr.filter((item) => item.autor === autor);
+    return resultadoLibros;
+}
+
+function mostrarFiltrados(){
+
+    let inputAutor = document.getElementById("autor");
+    let divLibros = document.getElementById("libros");
+
+    const arr = filtrarAutor(libros,inputAutor.value);
+
+    divLibros.innerHTML = "";
+
+    arr.forEach((item)=>{
+        divLibros.innerHTML += `<div class="card" style="width: 18rem;">
+        <img src="${item.url}" class="card-img-top" alt="...">
+        <div class="card-body">
+        <h5 class="card-title">${item.titulo}</h5>
+          <p class="card-text">Autor: ${item.autor}</p>
+          <p class="card-text">Precio: ${item.precio}</p>
+        </div>
+      </div>`
+    })
+}
+
 
 
 
